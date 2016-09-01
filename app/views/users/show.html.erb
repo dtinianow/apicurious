@@ -1,0 +1,65 @@
+<div class="container">
+ <div class="row">
+   <div class="col-md-3">
+     <img id="user-image" src="<%= @user.avatar_url %>">
+     <br>
+     <h2><%= @user.login %></h2>
+     <h5><%= @user.name %></h5>
+     <br>
+     <p>Followers: <%= @user.followers %></p>
+     <p>Starred: <%= @starred_repos %></p>
+     <p>Following: <%= @user.following %></p>
+   </div>
+    <div class="col-md-9 text-center">
+      <h1>My Repositories</h1>
+      <ul class="list-group">
+        <% @repos.each do |repo| %>
+          <li class="list-group-item"><%= repo.name %></li>
+        <% end %>
+      </ul>
+      <br>
+      <h1>My Organizations</h1>
+      <ul class="list-group">
+        <% @organizations.each do |organization| %>
+        <li class="list-group-item">
+          <%= image_tag("https://avatars.githubusercontent.com/u/21352536?v=3", size: "70x70") %> <%= organization.login %>
+        </li>
+        <% end %>
+      </ul>
+      <br>
+      <h1>Recent Activity of People I Follow</h1>
+      <table class='table table-striped table-bordered'>
+            <tr>
+              <th class='text-center'>Date</th>
+              <th class='text-center'>User</th>
+              <th class='text-center'>Repo</th>
+              <th class='text-center'>Commit Message</th>
+            </tr>
+        <% @followings_activity.each do |activity| %>
+            <tr>
+              <td style="width: 110px;"><%= format_date(activity.created_at)%></td>
+              <td><%= activity.actor.login %></td>
+              <td><%= activity.repo.name %></td>
+              <td><%= activity.commit_message %></td>
+            </tr>
+        <% end %>
+      </table>
+      <br>
+      <h1>My Recent Activity</h1>
+      <table class="table table-striped table-bordered">
+          <tr>
+            <th class='text-center'>Date</th>
+            <th class='text-center'>Repo</th>
+            <th class='text-center'>Commit Message</th>
+          </tr>
+        <% @user_activity.each do |activity| %>
+          <tr>
+            <td style="width: 110px;"><%= format_date(activity.created_at) %></td>
+            <td><%= activity.repo.name %></td>
+            <td><%= activity.commit_message %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
