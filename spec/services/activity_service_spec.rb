@@ -4,11 +4,11 @@ describe GithubUserService do
 
   before(:each) do
     @user = User.create(
-    uid: "1234",
-    provider: "github",
-    username: "dtinianow",
-    name: "David Tinianow",
-    token: ENV["GITHUB_TOKEN"]
+      uid: "1234",
+      provider: "github",
+      username: "dtinianow",
+      name: "David Tinianow",
+      token: ENV["GITHUB_TOKEN"]
     )
   end
 

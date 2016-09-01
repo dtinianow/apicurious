@@ -1,7 +1,7 @@
 class Organization < OpenStruct
 
   def self.service(user)
-    @@service ||= OrganizationService.new(user)
+    @service ||= OrganizationService.new(user)
   end
 
   def self.organizations(user)

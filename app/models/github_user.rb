@@ -1,7 +1,7 @@
 class GithubUser < OpenStruct
 
   def self.service(user)
-    @@service ||= GithubUserService.new(user)
+    @service ||= GithubUserService.new(user)
   end
 
   def self.find(user)
