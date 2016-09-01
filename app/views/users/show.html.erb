@@ -22,7 +22,7 @@
       <ul class="list-group">
         <% @organizations.each do |organization| %>
         <li class="list-group-item">
-          <%= image_tag("https://avatars.githubusercontent.com/u/21352536?v=3", size: "70x70") %> <%= organization.login %>
+          <%= image_tag(organization.avatar_url, size: "70x70") %> <%= organization.login %>
         </li>
         <% end %>
       </ul>
