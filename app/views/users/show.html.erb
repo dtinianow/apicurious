@@ -3,14 +3,14 @@
    <div class="col-md-3">
      <img id="user-image" src="<%= @user.avatar_url %>">
      <br>
-     <h2><%= @user.login %></h2>
-     <h5><%= @user.name %></h5>
+     <h2 id="username"><%= @user.login %></h2>
+     <h5 id="user-full-name"><%= @user.name %></h5>
      <br>
      <p>Followers: <%= @user.followers %></p>
      <p>Starred: <%= @starred_repos %></p>
      <p>Following: <%= @user.following %></p>
    </div>
-    <div class="col-md-9 text-center">
+    <div id="github-categories" class="col-md-9 text-center">
       <h1>My Repositories</h1>
       <ul class="list-group">
         <% @repos.each do |repo| %>
